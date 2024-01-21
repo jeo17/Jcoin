@@ -1,9 +1,14 @@
 import Annonce from "./components/navigation/Annonce";
 import NavBar from "./components/navigation/NavBar";
+import Hero from "./components/Hero";
 function Home() {
   return <>
-  <Annonce/>
-  <NavBar/>
+  <header>
+   <Annonce/>
+   <NavBar/>
+   <Hero/>
+  </header>
+
     </>;
 }
 
