@@ -10,7 +10,7 @@ interface feutures {
   icon: AllIcons;
 }
 
-export const Feutures: [feutures] = [
+export const Feutures: feutures[] = [
   { title: "Fasted Delivery", desc: "Delivery in 24/H", icon: LuBox },
   { title: "24 Hours Return", desc: "100% money-back guarantee", icon: LuTrophy },
   { title: "Secure Payment", desc: "Your money is safe", icon: MdPayment },
