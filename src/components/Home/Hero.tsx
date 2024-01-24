@@ -5,7 +5,7 @@ import { Feutures } from "../../assets/data/HomeData";
 
 const Hero: React.FC = () => {
   return (
-    <div className="flex flex-col gap-[24px] w-[97%] mx-[1.5%]">
+    <div className="flex flex-col gap-[24px]">
       <div className="flex mt-[28px] h-[540px] gap-[24px]">
         <div className="bg-[#F2F4F5] rounded-[6px] h-full w-[68%] relative flex items-center gap-[30px]">
           <div className="flex flex-col items-start w-[360px] ml-[56px]">

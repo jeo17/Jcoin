@@ -2,7 +2,7 @@ import { Products } from "../../assets/data/TodayBestDealsData";
 
 const TodayBestDeals: React.FC = () => {
   return (
-    <div className="flex flex-col w-[97%] mx-[1.5%] gap-[24px]">
+    <div className="flex flex-col gap-[24px]">
       <header className="flex justify-between">
         <div className="flex justify-center items-center gap-[12px]">
           <h2 className="font-ps font-[700] text-[24px] text-[#191C1F] mr-[12px]">

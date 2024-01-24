@@ -2,16 +2,18 @@ import Annonce from "./components/navigation/Annonce";
 import NavBar from "./components/navigation/NavBar";
 import Hero from "./components/Home/Hero";
 import TodayBestDeals from "./components/Home/TodayBestDeals";
+import Category from "./components/Home/Category";
 function Home() {
   return (
-    <div className="flex flex-col gap-[72px]">
-      <header>
-        <Annonce />
-        <NavBar />
+    <>
+      <Annonce />
+      <NavBar />
+      <div className="w-[97%] mx-[1.5%] flex flex-col  gap-[72px]">
         <Hero />
-      </header>
-      <TodayBestDeals />
-    </div>
+        <TodayBestDeals />
+        <Category />
+      </div>
+    </>
   );
 }
 
