@@ -1,7 +1,7 @@
-import Xbox360 from "../assets/productes/Image.png";
-import Pixel6 from "../assets/productes/image 5.png";
-import Airpodes from "../assets/productes/image 4.png";
-import { Feutures } from "../assets/data/HomeData";
+import Xbox360 from "../../assets/productes/Image.png";
+import Pixel6 from "../../assets/productes/image 5.png";
+import Airpodes from "../../assets/productes/image 4.png";
+import { Feutures } from "../../assets/data/HomeData";
 
 const Hero: React.FC = () => {
   return (

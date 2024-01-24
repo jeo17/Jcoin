@@ -20,3 +20,6 @@ html::-webkit-scrollbar-thumb
 {
 	background-color: #000000;
 }
+*{
+	font-family: "Public Sans";
+}
