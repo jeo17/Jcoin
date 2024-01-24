@@ -1,12 +1,12 @@
 import Xbox360 from "../assets/productes/Image.png";
 import Pixel6 from "../assets/productes/image 5.png";
 import Airpodes from "../assets/productes/image 4.png";
-import { Feutures } from "../assets/HomeData";
+import { Feutures } from "../assets/data/HomeData";
 
 const Hero: React.FC = () => {
   return (
-    <div className="flex flex-col gap-[24px]">
-      <div className="flex w-[97%] mx-[1.5%] mt-[28px] h-[540px] gap-[24px]">
+    <div className="flex flex-col gap-[24px] w-[97%] mx-[1.5%]">
+      <div className="flex mt-[28px] h-[540px] gap-[24px]">
         <div className="bg-[#F2F4F5] rounded-[6px] h-full w-[68%] relative flex items-center gap-[30px]">
           <div className="flex flex-col items-start w-[360px] ml-[56px]">
             <div className="flex justify-start items-center gap-[8px]">
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-[97%] mx-[1.5%] border-[#E4E7E9] border p-[16px] justify-center items-center gap-[28px]">
+      <div className="flex border-[#E4E7E9] border p-[16px] justify-center items-center gap-[28px]">
         {Feutures.map((feuture, index) => {
           return (
             <div
