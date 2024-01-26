@@ -3,6 +3,7 @@ import NavBar from "./components/navigation/NavBar";
 import Hero from "./components/Home/Hero";
 import TodayBestDeals from "./components/Home/TodayBestDeals";
 import Category from "./components/Home/Category";
+import Products from "./components/Home/Products";
 function Home() {
   return (
     <>
@@ -12,6 +13,7 @@ function Home() {
         <Hero />
         <TodayBestDeals />
         <Category />
+        <Products />
       </div>
     </>
   );
