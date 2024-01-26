@@ -11,7 +11,7 @@ const TodayBestDeals: React.FC = () => {
           <span className="font-ps font-semibold text-[14px]">
             Deals ends in
           </span>
-          <div className="flex px-[12px] py-[6px] gap-[6px] bg-[#F3DE6D] ">
+          <div className="flex px-[12px] py-[6px] gap-[6px] bg-[#F3DE6D] rounded-[2px]">
             <div className="font-ps font-bold text-[#191C1F]">16d :</div>
             <div className="font-ps font-bold text-[#191C1F]">21h :</div>
             <div className="font-ps font-bold text-[#191C1F]">57m :</div>
@@ -147,7 +147,7 @@ const TodayBestDeals: React.FC = () => {
           </div>
 
           <div className="flex gap-[8px]">
-            <span className="p-[12px] bg-[#FFE7D6]">
+            <span className="p-[12px] bg-[#FFE7D6] rounded-[2px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -165,7 +165,7 @@ const TodayBestDeals: React.FC = () => {
               </svg>
             </span>
 
-            <button className="font-[600] flex px-[24px] bg-[#FA8232] leading-[48px] gap-[8px] text-white justify-center items-center">
+            <button className="rounded-[2px] font-[600] flex px-[24px] bg-[#FA8232] leading-[48px] gap-[8px] text-white justify-center items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="21"
@@ -194,7 +194,7 @@ const TodayBestDeals: React.FC = () => {
               Add to card
             </button>
 
-            <span className="p-[12px] bg-[#FFE7D6]">
+            <span className="p-[12px] bg-[#FFE7D6] rounded-[2px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

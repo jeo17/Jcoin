@@ -14,7 +14,7 @@ const Annonce: React.FC = () => {
         <p className="text-[40px] text-[#EBC80C] font-[600] font-ps">59%</p>
         <p className="text-[20px] text-white font-[600] font-ps">OFF</p>
       </div>
-      <button className="font-ps flex justify-center items-center gap-[8px] px-[24px] bg-[#EBC80C] text-[14px] font-[700] uppercase leading-[48px] mr-5 text-[#191C1F]">
+      <button className="rounded-[2px] font-ps flex justify-center items-center gap-[8px] px-[24px] bg-[#EBC80C] text-[14px] font-[700] uppercase leading-[48px] mr-5 text-[#191C1F]">
         Shop now
         <svg
           xmlns="http://www.w3.org/2000/svg"
