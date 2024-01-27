@@ -157,7 +157,7 @@ const Products = () => {
         <main className="flex gap-[16px] flex-wrap">
           {MyProducts.map((product) => {
             return (
-              <div className="border border-[#E4E7E9] rounded-[3px] w-[23.7%] p-[16px]">
+              <div className="border border-[#E4E7E9] rounded-[3px] w-[23.7%] p-[16px] relative">
                 <img
                   src={product.imageUrl}
                   alt="product"
@@ -188,6 +188,38 @@ const Products = () => {
                     </div>
                   )}
                 </div>
+
+                <div className="flex flex-col items-start gap-[8px] absolute top-[14px] left-[14px]">
+                      {product.coupon !== null && (
+                        <label
+                          htmlFor="coupon"
+                          className="bg-[#EFD33D] px-[10px] py-[5px] rounded-[2px] text-[#191C1F] text-[12px] font-[600] leading-[16px]"
+                        >
+                          {product.coupon}% OFF
+                        </label>
+                      )}
+
+                      {product.state !== null && (
+                        <label
+                          htmlFor="state"
+                          className={`text-white text-[12px] font-[600] leading-[16px] px-[10px] py-[5px] rounded-[2px] ${
+                            product.state === "HOT"
+                              ? "bg-[#EE5858]"
+                              : product.state === "SOLD OUT"
+                              ? "bg-[#929FA5]"
+                              : product.state === "BEST DEALS"
+                              ? "bg-[#2DA5F3]"
+                              : product.state === "SALE"
+                              ? "bg-[#2DB224]"
+                              : null
+                          }`}
+                        >
+                          {product.state}
+                        </label>
+                      )}
+                    </div>
+
+
               </div>
             );
           })}
