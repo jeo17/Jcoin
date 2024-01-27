@@ -47,7 +47,7 @@ const TodayBestDeals: React.FC = () => {
         </div>
       </header>
       <main className="flex">
-        <div className="flex flex-col p-[22px] gap-[24px] w-[25%] border border-[#E4E7E9]">
+        <div className="flex flex-col p-[22px] gap-[24px] w-[25%] border border-[#E4E7E9] relative">
           <img
             src={Products[0].imageUrl}
             alt="product"
@@ -219,47 +219,104 @@ const TodayBestDeals: React.FC = () => {
               </svg>
             </span>
           </div>
+          <div className="flex flex-col items-start gap-[8px] absolute top-[16px] left-[16px]">
+                      {Products[0].coupon !== null && (
+                        <label
+                          htmlFor="coupon"
+                          className="bg-[#EFD33D] px-[10px] py-[5px] rounded-[2px] text-[#191C1F] text-[12px] font-[600] leading-[16px]"
+                        >
+                          {Products[0].coupon}% OFF
+                        </label>
+                      )}
+
+                      {Products[0].state !== null && (
+                        <label
+                          htmlFor="state"
+                          className={`text-white text-[12px] font-[600] leading-[16px] px-[10px] py-[5px] rounded-[2px] ${
+                            Products[0].state === "HOT"
+                              ? "bg-[#EE5858]"
+                              : Products[0].state === "SOLD OUT"
+                              ? "bg-[#929FA5]"
+                              : Products[0].state === "BEST DEALS"
+                              ? "bg-[#2DA5F3]"
+                              : Products[0].state === "SALE"
+                              ? "bg-[#2DB224]"
+                              : null
+                          }`}
+                        >
+                          {Products[0].state}
+                        </label>
+                      )}
+                    </div>
         </div>
 
         <div className="w-[75%] ">
           <div className="flex w-full h-full flex-wrap">
             {Products.map((Product) => {
-                if (Product.id!=="1") {
-                    return (
-                        <div className="flex flex-col p-[16px] gap-[8px] border border-[#E4E7E9] w-[25%]">
-                          <img
-                            src={Product.imageUrl}
-                            alt="product"
-                            className="bg-contain w-[216px] h-[188px]"
-                          />
-        
-                          <div className="flex flex-col gap-[12px]">
-                            <h4 className="text-[#191C1F] font-semibold text-[14px]">
-                              {Product.desc}
-                            </h4>
-        
-                            {Product.coupon === null ? (
-                              <span className="text-[14px] text-[#2DA5F3] font-[600]">
-                                ${Product.price}
-                              </span>
-                            ) : (
-                              <div className="flex items-center gap-[4px]">
-                                <span className="text-[#ADB7BC] line-through text-[12px]">
-                                  ${Product.price}
-                                </span>
-                                <span className="text-[14px] text-[#2DA5F3] font-[600]">
-                                  $
-                                  {((100 - Product.coupon) *
-                                    Number(Product.price)) /
-                                    100}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      );
-                }
+              if (Product.id !== "1") {
+                return (
+                  <div className="flex flex-col p-[16px] gap-[8px] border border-[#E4E7E9] w-[25%] relative">
+                    <img
+                      src={Product.imageUrl}
+                      alt="product"
+                      className="bg-contain w-[216px] h-[188px]"
+                    />
 
+                    <div className="flex flex-col gap-[12px]">
+                      <h4 className="text-[#191C1F] font-semibold text-[14px]">
+                        {Product.desc}
+                      </h4>
+
+                      {Product.coupon === null ? (
+                        <span className="text-[14px] text-[#2DA5F3] font-[600]">
+                          ${Product.price}
+                        </span>
+                      ) : (
+                        <div className="flex items-center gap-[4px]">
+                          <span className="text-[#ADB7BC] line-through text-[12px]">
+                            ${Product.price}
+                          </span>
+                          <span className="text-[14px] text-[#2DA5F3] font-[600]">
+                            $
+                            {((100 - Product.coupon) * Number(Product.price)) /
+                              100}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col items-start gap-[8px] absolute top-[16px] left-[16px]">
+                      {Product.coupon !== null && (
+                        <label
+                          htmlFor="coupon"
+                          className="bg-[#EFD33D] px-[10px] py-[5px] rounded-[2px] text-[#191C1F] text-[12px] font-[600] leading-[16px]"
+                        >
+                          {Product.coupon}% OFF
+                        </label>
+                      )}
+
+                      {Product.state !== null && (
+                        <label
+                          htmlFor="state"
+                          className={`text-white text-[12px] font-[600] leading-[16px] px-[10px] py-[5px] rounded-[2px] ${
+                            Product.state === "HOT"
+                              ? "bg-[#EE5858]"
+                              : Product.state === "SOLD OUT"
+                              ? "bg-[#929FA5]"
+                              : Product.state === "BEST DEALS"
+                              ? "bg-[#2DA5F3]"
+                              : Product.state === "SALE"
+                              ? "bg-[#2DB224]"
+                              : null
+                          }`}
+                        >
+                          {Product.state}
+                        </label>
+                      )}
+                    </div>
+                  </div>
+                );
+              }
             })}
           </div>
         </div>

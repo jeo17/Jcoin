@@ -1,10 +1,13 @@
 
-enum State {
+export enum State {
     Hot = 'HOT',
     SoldOut = 'SOLD OUT',
+    BestDeals = 'BEST DEALS',
+    Sale = 'SALE',
+
   }
 
-interface products {
+export interface products {
   id: string,
   imageUrl: string;
   desc: string;
@@ -12,6 +15,7 @@ interface products {
   state: State | null;
   coupon: number | null;
   rating?: number;
+  nbrOfPeople?: number,
 }
 
 export const Products: products[] = [
