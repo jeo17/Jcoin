@@ -4,6 +4,7 @@ import Hero from "./components/Home/Hero";
 import TodayBestDeals from "./components/Home/TodayBestDeals";
 import Category from "./components/Home/Category";
 import Products from "./components/Home/Products";
+import Banner from "./components/Home/banner";
 function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ function Home() {
         <TodayBestDeals />
         <Category />
         <Products />
+        <Banner />
       </div>
     </>
   );

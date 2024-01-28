@@ -1,6 +1,6 @@
 import Banner from "../../assets/productes/Banner.jpg";
 import { ProductHeader, MyProducts } from "../../assets/data/Products";
-const Products = () => {
+const Products:React.FC = () => {
   const generateStars = (rating: number) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
