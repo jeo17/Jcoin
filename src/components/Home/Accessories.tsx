@@ -1,6 +1,10 @@
 import Banner from "../../assets/productes/Banner.jpg";
-import { ProductHeader, MyProducts } from "../../assets/data/ProductsData";
-const Products:React.FC = () => {
+import {
+  AccessoriesHeader,
+  MyAccessories,
+} from "../../assets/data/AccessoriesData";
+import banner1 from "../../assets/productes/Image2.png";
+const Products: React.FC = () => {
   const generateStars = (rating: number) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -44,35 +48,33 @@ const Products:React.FC = () => {
   };
 
   return (
-    <div className="flex gap-[24px]">
-      <div className="bg-[#F3DE6D] roundeed-[3px] flex flex-col gap-[30px] w-[24%]">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col gap-[12px] my-[32px] mx-[18px] items-center justify-center">
-            <div className="flex flex-col gap-[8px] items-center justify-center">
-              <h6 className="font-[600] text-[14px] text-[#BE4646]">
-                COMPUTER & ACCESSORIES
-              </h6>
-              <h1 className="font-[600] text-[32px] text-[#191C1F]">
-                32% Discount
-              </h1>
-            </div>
+    <div className="flex flex-row-reverse gap-[24px]">
+      <div className="  flex flex-col gap-[24px] w-[24%] items-center justify-center">
+        <div className="bg-[#F7E99E] roundeed-[4px] px-[28px] py-[25px] flex flex-col gap-[24px] items-stretch justify-center">
+          <div className="flex flex-col justify-center items-center">
+            <img src={banner1} alt="product" />
             <div className="flex flex-col gap-[16px] items-center justify-center">
-              <p className="font-[400] text-[#475156]">
-                For all ellectronics products
-              </p>
-              <div className="flex gap-[8px] items-center">
-                <span className="font-[600] text-[14px] text-[#191C1F]">
-                  Offers ends in:
+              <div className="flex flex-col items-center justify-center gap-[8px]">
+                <h2 className="text-[#191C1F] text-center text-[28px] font-semibold leading-[32px]">
+                  Xiaomi True Wireless Earbuds
+                </h2>
+                <p className="text-[#475156] text-center leading-[24px]">
+                  Escape the noise, It’s time to hear the magic with Xiaomi
+                  Earbuds.
+                </p>
+              </div>
+              <div className="flex items-center justify-center gap-[8px]">
+                <p className="text-[#475156] text-[14px] leading-[20px]">
+                  Only for:
+                </p>
+                <span className="text-[#191C1F] text-center font-semibold leading-[24px] px-[12px] py-[6px] bg-white rounded-[3px]">
+                  $299 USD
                 </span>
-                <div className="bg-white rounded-[2px] px-[12px] py-[6px]">
-                  <span className="font-[600] text-[14px] text-[#191C1F]">
-                    ENDS OF CHRISTMAS
-                  </span>
-                </div>
               </div>
             </div>
           </div>
-          <button className="bg-[#FA8232] px-[32px] leading-[56px] flex items-center justify-center gap-[12px] rounded-[3px] text-white font-[700] uppercase">
+
+          <button className="bg-[#FA8232] px-[24px] leading-[48px] text-[14px] flex items-center justify-center gap-[8px] rounded-[2px] text-white font-semibold uppercase">
             Shop now
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -98,28 +100,60 @@ const Products:React.FC = () => {
             </svg>
           </button>
         </div>
-        <img src={Banner} alt="Banner" />
+
+        <div className="px-[24px] py-[36px] flex flex-col items-center justify-center gap-[24px] bg-[#124261] roundeed-[4px]">
+           <div className="flex flex-col items-center justify-center gap-[12px]">
+              <span className="px-[12px] py-[6px] rounded-[2px] bg-[#2f5974] text-white text-[14px] font-semibold leading-[20px]">SUMMER SALES</span>
+              <h3 className="text-white text-[28px] font-semibold leading-[32px]">37% DISCOUNT</h3>
+              <p className="text-white text-center text-[18px] font-normal leading-[24px]">only for <span className="font-semibold text-[#EBC80C]">SmartPhone</span> product.</p>
+           </div>
+           <button className="bg-[#2DA5F3] px-[24px] leading-[48px] text-[14px] flex items-center justify-center gap-[8px] rounded-[2px] text-white font-semibold uppercase">
+            Shop now
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M3.75 12H20.25"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M13.5 5.25L20.25 12L13.5 18.75"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div className="flex flex-col gap-[24px] flex-grow w-[76%]">
         <header className="flex">
           <h2 className="font-[600] text-[24px] text-[#191C1F]">
-            Featured Products
+            Computer Accessories
           </h2>
           <div className="flex-grow"></div>
           <div className="flex gap-[16px] items-center justify-center">
             <div className="flex">
-              {ProductHeader.map((p) => {
+              {AccessoriesHeader.map((a) => {
                 return (
                   <span
-                    key={p.id}
+                    key={a.id}
                     className={`text-[14px] p-[8px] ${
-                      p.active === true
+                      a.active === true
                         ? "text-[#191C1F] font-[600] border-b-[2px] border-[#FA8232]"
                         : "text-[#5F6C72]"
                     } `}
                   >
-                    {p.title}
+                    {a.title}
                   </span>
                 );
               })}
@@ -155,71 +189,77 @@ const Products:React.FC = () => {
           </div>
         </header>
         <main className="flex gap-[16px] flex-wrap">
-          {MyProducts.map((product) => {
+          {MyAccessories.map((Accessorie) => {
             return (
               <div className="border border-[#E4E7E9] rounded-[3px] w-[23.7%] p-[16px] relative">
                 <img
-                  src={product.imageUrl}
+                  src={Accessorie.imageUrl}
                   alt="product"
                   className="mb-[24px]"
                 />
                 <div className=" flex flex-col gap-[8px]">
                   <div className="flex gap-[4px] items-center">
-                    <div className="flex">{product.rating ? generateStars(product.rating!): null}</div>
-                    <span className="text-[#77878F] text-[12px] font-[400]">({product.nbrOfPeople})</span>
+                    <div className="flex">
+                      {Accessorie.rating
+                        ? generateStars(Accessorie.rating!)
+                        : null}
+                    </div>
+                    <span className="text-[#77878F] text-[12px] font-[400]">
+                      ({Accessorie.nbrOfPeople})
+                    </span>
                   </div>
                   <p className="text-[#191C1F] text-[13.7px] font-[600]">
-                    {product.desc}
+                    {Accessorie.desc}
                   </p>
 
-                  {product.coupon === null ? (
+                  {Accessorie.coupon === null ? (
                     <span className="text-[14px] text-[#2DA5F3] font-[600]">
-                      ${product.price}
+                      ${Accessorie.price}
                     </span>
                   ) : (
                     <div className="flex items-center gap-[4px]">
                       <span className="text-[#ADB7BC] line-through text-[12px]">
-                        ${product.price}
+                        ${Accessorie.price}
                       </span>
                       <span className="text-[14px] text-[#2DA5F3] font-[600]">
                         $
-                        {((100 - product.coupon) * Number(product.price)) / 100}
+                        {((100 - Accessorie.coupon) *
+                          Number(Accessorie.price)) /
+                          100}
                       </span>
                     </div>
                   )}
                 </div>
 
                 <div className="flex flex-col items-start gap-[8px] absolute top-[14px] left-[14px]">
-                      {product.coupon !== null && (
-                        <label
-                          htmlFor="coupon"
-                          className="bg-[#EFD33D] px-[10px] py-[5px] rounded-[2px] text-[#191C1F] text-[12px] font-[600] leading-[16px]"
-                        >
-                          {product.coupon}% OFF
-                        </label>
-                      )}
+                  {Accessorie.coupon !== null && (
+                    <label
+                      htmlFor="coupon"
+                      className="bg-[#EFD33D] px-[10px] py-[5px] rounded-[2px] text-[#191C1F] text-[12px] font-[600] leading-[16px]"
+                    >
+                      {Accessorie.coupon}% OFF
+                    </label>
+                  )}
 
-                      {product.state !== null && (
-                        <label
-                          htmlFor="state"
-                          className={`text-white text-[12px] font-[600] leading-[16px] px-[10px] py-[5px] rounded-[2px] ${
-                            product.state === "HOT"
-                              ? "bg-[#EE5858]"
-                              : product.state === "SOLD OUT"
-                              ? "bg-[#929FA5]"
-                              : product.state === "BEST DEALS"
-                              ? "bg-[#2DA5F3]"
-                              : product.state === "SALE"
-                              ? "bg-[#2DB224]"
-                              : null
-                          }`}
-                        >
-                          {product.state}
-                        </label>
-                      )}
-                    </div>
-
-
+                  {Accessorie.state !== null && (
+                    <label
+                      htmlFor="state"
+                      className={`text-white text-[12px] font-[600] leading-[16px] px-[10px] py-[5px] rounded-[2px] ${
+                        Accessorie.state === "HOT"
+                          ? "bg-[#EE5858]"
+                          : Accessorie.state === "SOLD OUT"
+                          ? "bg-[#929FA5]"
+                          : Accessorie.state === "BEST DEALS"
+                          ? "bg-[#2DA5F3]"
+                          : Accessorie.state === "SALE"
+                          ? "bg-[#2DB224]"
+                          : null
+                      }`}
+                    >
+                      {Accessorie.state}
+                    </label>
+                  )}
+                </div>
               </div>
             );
           })}

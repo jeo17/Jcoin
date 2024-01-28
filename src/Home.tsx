@@ -5,6 +5,7 @@ import TodayBestDeals from "./components/Home/TodayBestDeals";
 import Category from "./components/Home/Category";
 import Products from "./components/Home/Products";
 import Banner from "./components/Home/banner";
+import Accessories from "./components/Home/Accessories"
 function Home() {
   return (
     <>
@@ -16,6 +17,7 @@ function Home() {
         <Category />
         <Products />
         <Banner />
+        <Accessories/>
       </div>
     </>
   );
