@@ -7,7 +7,7 @@ interface Blog {
   comments: string;
 }
 
-const News: Blog[] = [
+export const News: Blog[] = [
   {
     blogImg: "/NewsPic/n1.png",
     desc: "Cras nisl dolor, accumsan et metus sit amet, vulputate condimentum dolor.",
