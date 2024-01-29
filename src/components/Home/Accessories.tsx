@@ -50,7 +50,7 @@ const Products: React.FC = () => {
   return (
     <div className="flex flex-row-reverse gap-[24px]">
       <div className="  flex flex-col gap-[24px] w-[24%] items-center justify-center">
-        <div className="bg-[#F7E99E] roundeed-[4px] px-[28px] py-[25px] flex flex-col gap-[24px] items-stretch justify-center">
+        <div className="bg-[#F7E99E] rounded-[4px] px-[28px] py-[25px] flex flex-col gap-[24px] items-stretch justify-center">
           <div className="flex flex-col justify-center items-center">
             <img src={banner1} alt="product" />
             <div className="flex flex-col gap-[16px] items-center justify-center">
@@ -101,7 +101,7 @@ const Products: React.FC = () => {
           </button>
         </div>
 
-        <div className="px-[24px] py-[36px] flex flex-col items-center justify-center gap-[24px] bg-[#124261] roundeed-[4px]">
+        <div className="rounded-[4px] px-[24px] py-[36px] flex flex-col items-center justify-center gap-[24px] bg-[#124261]">
            <div className="flex flex-col items-center justify-center gap-[12px]">
               <span className="px-[12px] py-[6px] rounded-[2px] bg-[#2f5974] text-white text-[14px] font-semibold leading-[20px]">SUMMER SALES</span>
               <h3 className="text-white text-[28px] font-semibold leading-[32px]">37% DISCOUNT</h3>
