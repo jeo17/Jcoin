@@ -9,6 +9,8 @@ import Accessories from "./components/Home/Accessories";
 import Banner2 from "./components/Home/Banner2";
 import TrendProducts from "./components/Home/TrendProducts";
 import { LatestNews } from "./components/Home/LatestNews";
+import Newsletter from "./components/Home/Newsletter";
+import Footer from "./components/Home/Footer";
 
 function Home() {
   return (
@@ -28,7 +30,10 @@ function Home() {
         <Banner2 />
         <TrendProducts />
         <LatestNews />
+        <Newsletter/>
       </div>
+
+      <Footer/>
     </>
   );
 }
