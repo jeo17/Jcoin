@@ -1,14 +1,24 @@
-import { currency } from "../../assets/data/NavBarData";
+import { currency, languages } from "../../assets/data/NavBarData";
 import { useState } from "react";
 
 const NavBar: React.FC = () => {
   const [currencyMenu, setCurrencyMenu] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("Dollar (USD)");
 
+  const [langMenu, setLangMenu] = useState(false);
+  const [selectedLang, setSelectedLang] = useState("English");
+
   let CurrencyCode: string | undefined;
   currency.forEach((curr) => {
     if (curr.name === selectedCurrency) {
       CurrencyCode = curr.code;
+    }
+  });
+
+  let LangCode: string | undefined;
+  languages.forEach((lang) => {
+    if (lang.name === selectedLang) {
+      LangCode = lang.code;
     }
   });
 
@@ -149,31 +159,81 @@ const NavBar: React.FC = () => {
             </div>
           </div>
           <div className="w-0 h-7 origin-top-left opacity-20 border border-white"></div>
-          <div className="w-11 h-5 justify-center items-center flex">
-            <div className="justify-center items-center gap-1.5 inline-flex hover:scale-95 cursor-pointer">
-              <div className="text-white text-sm font-normal font-ps leading-tight">
-                Eng
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
+
+          <div className="relative">
+            <div className="w-11 h-5 justify-center items-center flex">
+              <div
+                className="justify-center items-center gap-1.5 inline-flex hover:scale-95 cursor-pointer"
+                onClick={() => {
+                  setLangMenu(!langMenu);
+                }}
               >
-                <g opacity="0.5">
-                  <path
-                    d="M9.75 4.5L6 8.25L2.25 4.5"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </g>
-              </svg>
-              <div className="w-3 h-3 relative opacity-50" />
+                <div className="text-white text-sm font-normal font-ps leading-tight">
+                  {LangCode}
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                >
+                  <g opacity="0.5">
+                    <path
+                      d="M9.75 4.5L6 8.25L2.25 4.5"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                </svg>
+                <div className="w-3 h-3 relative opacity-50" />
+              </div>
             </div>
+
+            {langMenu && (
+              <div className="absolute top-[30px] right-[0px] z-10 bg-white flex flex-col py-[8px] rounded-[3px] w-[165px] shadow-md">
+                {languages.map((lang, index) => (
+                  <span
+                    key={index}
+                    className={`py-[8px] px-[16px] text-${
+                      lang.name === selectedLang ? "[#FA8232]" : "[#5F6C72]"
+                    } text-[14px] flex items-center gap-8 cursor-pointer hover:bg-slate-100`}
+                    onClick={() => {
+                      setSelectedLang(lang.name);
+                      setLangMenu(false);
+                    }}
+                  >
+                    <div className="flex items-center gap-4">
+                    <img className="rounded-[50%] overflow-hidden h-[22px] w-[22px]" src={lang.flag}/>
+                    {lang.name}
+                    </div>
+
+
+                    {lang.name === selectedLang && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="13"
+                        height="10"
+                        viewBox="0 0 13 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M11.5 1.5L4.5 8.5L1 5"
+                          stroke="#FA8232"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
+
           <div className="w-[47px] h-5 justify-center items-center flex">
             <div className="relative">
               <div
@@ -206,41 +266,40 @@ const NavBar: React.FC = () => {
 
               {currencyMenu && (
                 <div className="absolute top-[30px] right-[0px] z-10 bg-white flex flex-col py-[8px] rounded-[3px] w-[165px] shadow-md">
-  {currency.map((curr, index) => (
-    <span
-      key={index}
-      className={`py-[8px] px-[16px] text-${
-        curr.name === selectedCurrency
-          ? "[#FA8232]"
-          : "[#5F6C72]"
-      } text-[14px] flex items-center gap-8 cursor-pointer hover:bg-slate-100`}
-      onClick={() => {
-        setSelectedCurrency(curr.name);
-        setCurrencyMenu(false);
-      }}
-    >
-      {curr.name}
-      {curr.name === selectedCurrency && (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="13"
-          height="10"
-          viewBox="0 0 13 10"
-          fill="none"
-        >
-          <path
-            d="M11.5 1.5L4.5 8.5L1 5"
-            stroke="#FA8232"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )}
-    </span>
-  ))}
-</div>
-
+                  {currency.map((curr, index) => (
+                    <span
+                      key={index}
+                      className={`py-[8px] px-[16px] text-${
+                        curr.name === selectedCurrency
+                          ? "[#FA8232]"
+                          : "[#5F6C72]"
+                      } text-[14px] flex items-center gap-8 cursor-pointer hover:bg-slate-100`}
+                      onClick={() => {
+                        setSelectedCurrency(curr.name);
+                        setCurrencyMenu(false);
+                      }}
+                    >
+                      {curr.name}
+                      {curr.name === selectedCurrency && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="13"
+                          height="10"
+                          viewBox="0 0 13 10"
+                          fill="none"
+                        >
+                          <path
+                            d="M11.5 1.5L4.5 8.5L1 5"
+                            stroke="#FA8232"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                  ))}
+                </div>
               )}
             </div>
           </div>
