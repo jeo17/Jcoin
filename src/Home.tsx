@@ -30,10 +30,10 @@ function Home() {
         <Banner2 />
         <TrendProducts />
         <LatestNews />
-        <Newsletter/>
+        <Newsletter />
       </div>
 
-      <Footer/>
+      <Footer />
     </>
   );
 }
