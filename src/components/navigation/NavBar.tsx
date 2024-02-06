@@ -1,12 +1,20 @@
-import { currency, languages } from "../../assets/data/NavBarData";
-import { useState } from "react";
+import { currency, languages, categories } from "../../assets/data/NavBarData";
+import { useState, useEffect, useRef } from "react";
 
 const NavBar: React.FC = () => {
+  const langListContainerRef = useRef<HTMLDivElement | null>(null);
+  const currencyListContainerRef = useRef<HTMLDivElement | null>(null);
+
   const [currencyMenu, setCurrencyMenu] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("Dollar (USD)");
 
   const [langMenu, setLangMenu] = useState(false);
   const [selectedLang, setSelectedLang] = useState("English");
+
+  const [categoryMenu, setCategoryMenu] = useState(false);
+  const [clickedCategory, setClickedCategory] = useState<string | null>(null);
+  const [clickedSubCategory, setClickedSubCategory] = useState("All");
+
 
   let CurrencyCode: string | undefined;
   currency.forEach((curr) => {
@@ -21,6 +29,36 @@ const NavBar: React.FC = () => {
       LangCode = lang.code;
     }
   });
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const langListContainer = langListContainerRef.current;
+      const currencyListContainer = currencyListContainerRef.current;
+
+      // Check if the click is outside the language list container
+      if (
+        langListContainer &&
+        !langListContainer.contains(event.target as Node)
+      ) {
+        setLangMenu(false);
+      }
+      // Check if the click is outside the currency list container
+      if (
+        currencyListContainer &&
+        !currencyListContainer.contains(event.target as Node)
+      ) {
+        setCurrencyMenu(false);
+      }
+    };
+
+    // Add mousedown event listener to the document
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [setLangMenu]);
 
   return (
     <div className="w-full h-[220px] flex-col justify-start items-start inline-flex">
@@ -193,7 +231,16 @@ const NavBar: React.FC = () => {
             </div>
 
             {langMenu && (
-              <div className="absolute top-[30px] right-[0px] z-10 bg-white flex flex-col py-[8px] rounded-[3px] w-[165px] shadow-md">
+              <div
+                ref={langListContainerRef}
+                className="absolute top-[30px] right-[0px] z-10 bg-white flex flex-col py-[8px] rounded-[3px] w-[165px] shadow-md"
+                onMouseDown={(event) => {
+                  const targetNode = event.target as Node;
+                  if (!event.currentTarget.contains(targetNode)) {
+                    setLangMenu(false);
+                  }
+                }}
+              >
                 {languages.map((lang, index) => (
                   <span
                     key={index}
@@ -206,10 +253,12 @@ const NavBar: React.FC = () => {
                     }}
                   >
                     <div className="flex items-center gap-4">
-                    <img className="rounded-[50%] overflow-hidden h-[22px] w-[22px]" src={lang.flag}/>
-                    {lang.name}
+                      <img
+                        className="rounded-[50%] overflow-hidden h-[22px] w-[22px]"
+                        src={lang.flag}
+                      />
+                      {lang.name}
                     </div>
-
 
                     {lang.name === selectedLang && (
                       <svg
@@ -265,7 +314,10 @@ const NavBar: React.FC = () => {
               </div>
 
               {currencyMenu && (
-                <div className="absolute top-[30px] right-[0px] z-10 bg-white flex flex-col py-[8px] rounded-[3px] w-[165px] shadow-md">
+                <div
+                  ref={currencyListContainerRef}
+                  className="absolute top-[30px] right-[0px] z-10 bg-white flex flex-col py-[8px] rounded-[3px] w-[165px] shadow-md"
+                >
                   {currency.map((curr, index) => (
                     <span
                       key={index}
@@ -432,32 +484,147 @@ const NavBar: React.FC = () => {
         </div>
       </div>
       <div className="w-full px-6 py-4 bg-white shadow-inner justify-between items-center inline-flex border-b border-[#E4E7E9]">
-        <div className="justify-center items-center gap-6 flex">
-          <div className="w-[154px] h-12 justify-center items-center flex">
-            <div className="px-6 py-3.5 bg-gray-100 rounded-sm justify-center items-center gap-2 inline-flex">
-              <div className="text-zinc-900 text-sm font-medium font-ps leading-tight">
-                All Category
-              </div>
-              <div className="w-4 h-4 relative">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
+        <div className="justify-center items-center flex">
+          <div className="relative">
+            <div
+              className={` h-12 justify-center items-center  flex rounded-[2px] ${
+                categoryMenu ? "bg-[#FA8232]" : "bg-gray-50"
+              }  hover:cursor-pointer`}
+              onClick={() => {
+                setCategoryMenu(!categoryMenu);
+                setClickedCategory(null);
+                setClickedSubCategory("All")
+              }}
+            >
+              <div
+                className={`${
+                  categoryMenu ? "px-[23px]" : "px-[24px]"
+                } py-3.5  rounded-sm justify-center ${
+                  categoryMenu ? "items-end" : "items-center"
+                } ${categoryMenu ? "gap-2.5" : "gap-2"}  inline-flex `}
+              >
+                <div
+                  className={`text-sm font-medium font-ps leading-tight ${
+                    categoryMenu ? "text-white" : "text-zinc-900"
+                  }`}
                 >
-                  <path
-                    d="M13 6L8 11L3 6"
-                    stroke="#191C1F"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                  All Category
+                </div>
+                <div className="w-4 h-4 relative">
+                  {categoryMenu ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      fill="none"
+                    >
+                      <path
+                        d="M11 6L6 1L1 6"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M13 6L8 11L3 6"
+                        stroke="#191C1F"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
               </div>
             </div>
+
+            {categoryMenu && (
+              <div className="flex items-start gap-[12px] absolute z-10 top-[60px] w-fit">
+                <div className="bg-white border border-[E4E7E9] shadow-md flex flex-col py-[12px] ">
+                  {categories.map((category) => {
+                    return (
+                      <span
+                        className={`w-[240px] flex items-center justify-between py-[8px] px-[16px] text-[14px] leading-[20px] hover:bg-gray-100 cursor-pointer ${
+                          category.name === clickedCategory
+                            ? "text-[#191C1F] font-semibold bg-gray-200"
+                            : "text-[#5F6C72]"
+                        }`}
+                        onClick={() => {
+                          setClickedCategory(category.name);
+                          setClickedSubCategory("All")
+                        }}
+                      >
+                        {category.name}
+                        {category.name === clickedCategory && (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="10"
+                            viewBox="0 0 6 10"
+                            fill="none"
+                          >
+                            <path
+                              d="M1.5 1.25L5.25 5L1.5 8.75"
+                              stroke="#191C1F"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </span>
+                    );
+                  })}
+                </div>
+                {clickedCategory !== null && (
+                  <div className="p-[20px] bg-white border border-[E4E7E9] shadow-md flex gap-[20px]">
+                    <div className="flex flex-col">
+                      {categories.map((category) => {
+                        if (category.name === clickedCategory) {
+                          return (
+                            <>
+                              <span className={`py-[8px] px-[16px] w-[164px] text-[14px] leading-[20px] rounded-[3px] hover:bg-gray-100 cursor-pointer ${
+                          "All" === clickedSubCategory
+                            ? "text-[#191C1F] font-semibold bg-gray-200"
+                            : "text-[#5F6C72]"
+                        }`}                                 onClick={() => {
+                          setClickedSubCategory("All")
+                        }}>All</span>
+                              {category.subCategories.map((item) => {
+                                return <span className={`py-[8px] px-[16px] w-[164px] text-[14px] leading-[20px] rounded-[3px] hover:bg-gray-100 cursor-pointer ${
+                                  item.subName === clickedSubCategory
+                                    ? "text-[#191C1F] font-semibold bg-gray-200"
+                                    : "text-[#5F6C72]"
+                                }`}
+                                onClick={() => {
+                                  setClickedSubCategory(item.subName)
+                                }}
+                                >{item.subName}</span>;
+                              })}
+                            </>
+                          );
+                        }
+                      })}
+                    </div>
+
+                    <div className="w-[400px]"></div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-          <div className="justify-start items-center gap-1.5 flex">
+
+          <div className="justify-start items-center gap-1.5 flex px-4 py-3.5 hover:bg-gray-100 cursor-pointer">
             <div className="w-6 h-6 relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -493,7 +660,7 @@ const NavBar: React.FC = () => {
               Track Order
             </div>
           </div>
-          <div className="justify-start items-center gap-1.5 flex">
+          <div className="justify-start items-center gap-1.5 flex px-4 py-3.5 hover:bg-gray-100 cursor-pointer">
             <div className="w-6 h-6 relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -536,7 +703,7 @@ const NavBar: React.FC = () => {
               Compare
             </div>
           </div>
-          <div className="justify-start items-center gap-1.5 flex">
+          <div className="justify-start items-center gap-1.5 flex px-4 py-3.5 hover:bg-gray-100 cursor-pointer">
             <div className="w-6 h-6 relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -558,7 +725,7 @@ const NavBar: React.FC = () => {
               Customer Support
             </div>
           </div>
-          <div className="justify-start items-center gap-1.5 flex">
+          <div className="justify-start items-center gap-1.5 flex px-4 py-3.5 hover:bg-gray-100 cursor-pointer">
             <div className="w-6 h-6 relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -12,7 +12,7 @@ export interface products {
   imageUrl: string;
   desc: string;
   price: string;
-  state: State | null;
+  state?: State | null;
   coupon: number | null;
   rating?: number;
   nbrOfPeople?: number,
