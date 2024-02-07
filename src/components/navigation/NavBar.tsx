@@ -1,5 +1,6 @@
 import { currency, languages, categories } from "../../assets/data/NavBarData";
 import { useState, useEffect, useRef } from "react";
+import Banner from "/NavBarPic/Banner.png";
 
 const NavBar: React.FC = () => {
   const langListContainerRef = useRef<HTMLDivElement | null>(null);
@@ -14,7 +15,6 @@ const NavBar: React.FC = () => {
   const [categoryMenu, setCategoryMenu] = useState(false);
   const [clickedCategory, setClickedCategory] = useState<string | null>(null);
   const [clickedSubCategory, setClickedSubCategory] = useState("All");
-
 
   let CurrencyCode: string | undefined;
   currency.forEach((curr) => {
@@ -493,7 +493,7 @@ const NavBar: React.FC = () => {
               onClick={() => {
                 setCategoryMenu(!categoryMenu);
                 setClickedCategory(null);
-                setClickedSubCategory("All")
+                setClickedSubCategory("All");
               }}
             >
               <div
@@ -550,7 +550,7 @@ const NavBar: React.FC = () => {
 
             {categoryMenu && (
               <div className="flex items-start gap-[12px] absolute z-10 top-[60px] w-fit">
-                <div className="bg-white border border-[E4E7E9] shadow-md flex flex-col py-[12px] ">
+                <div className="bg-white border border-[E4E7E9] shadow-md flex flex-col py-[12px]">
                   {categories.map((category) => {
                     return (
                       <span
@@ -561,7 +561,7 @@ const NavBar: React.FC = () => {
                         }`}
                         onClick={() => {
                           setClickedCategory(category.name);
-                          setClickedSubCategory("All")
+                          setClickedSubCategory("All");
                         }}
                       >
                         {category.name}
@@ -588,36 +588,170 @@ const NavBar: React.FC = () => {
                 </div>
                 {clickedCategory !== null && (
                   <div className="p-[20px] bg-white border border-[E4E7E9] shadow-md flex gap-[20px]">
-                    <div className="flex flex-col">
-                      {categories.map((category) => {
-                        if (category.name === clickedCategory) {
-                          return (
-                            <>
-                              <span className={`py-[8px] px-[16px] w-[164px] text-[14px] leading-[20px] rounded-[3px] hover:bg-gray-100 cursor-pointer ${
-                          "All" === clickedSubCategory
-                            ? "text-[#191C1F] font-semibold bg-gray-200"
-                            : "text-[#5F6C72]"
-                        }`}                                 onClick={() => {
-                          setClickedSubCategory("All")
-                        }}>All</span>
-                              {category.subCategories.map((item) => {
-                                return <span className={`py-[8px] px-[16px] w-[164px] text-[14px] leading-[20px] rounded-[3px] hover:bg-gray-100 cursor-pointer ${
-                                  item.subName === clickedSubCategory
+                    {categories.map((category) => {
+                      if (category.name === clickedCategory) {
+                        return (
+                          <>
+                            <div className="flex flex-col">
+                              <span
+                                className={`py-[8px] px-[16px] w-[164px] text-[14px] leading-[20px] rounded-[3px] hover:bg-gray-100 cursor-pointer ${
+                                  "All" === clickedSubCategory
                                     ? "text-[#191C1F] font-semibold bg-gray-200"
                                     : "text-[#5F6C72]"
                                 }`}
                                 onClick={() => {
-                                  setClickedSubCategory(item.subName)
+                                  setClickedSubCategory("All");
                                 }}
-                                >{item.subName}</span>;
+                              >
+                                All
+                              </span>
+                              {category.subCategories.map((item) => {
+                                return (
+                                  <span
+                                    className={`py-[8px] px-[16px] w-[164px] text-[14px] leading-[20px] rounded-[3px] hover:bg-gray-100 cursor-pointer ${
+                                      item.subName === clickedSubCategory
+                                        ? "text-[#191C1F] font-semibold bg-gray-200"
+                                        : "text-[#5F6C72]"
+                                    }`}
+                                    onClick={() => {
+                                      setClickedSubCategory(item.subName);
+                                    }}
+                                  >
+                                    {item.subName}
+                                  </span>
+                                );
                               })}
-                            </>
-                          );
-                        }
-                      })}
-                    </div>
+                            </div>
 
-                    <div className="w-[400px]"></div>
+                            <div className="flex flex-col items-start gap-[16px]">
+                              <h5 className="text-[#191C1F] font-semibold leading-[24px]">
+                                {category.SubTitle}
+                              </h5>
+                              {category.subCategories.map(
+                                (subCategory, index) => {
+                                  if (subCategory.items) {
+                                    if (
+                                      subCategory.subName === clickedSubCategory
+                                    ) {
+                                      return (
+                                        <div className="flex flex-col gap-[16px]">
+                                          {subCategory.items.map((item) => {
+                                            return (
+                                              <div className="flex items-center gap-[12px] p-[12px] w-[312px] border border-[#E4E7E9] rounded-[3px]">
+                                                <img
+                                                  className="w-[80px] h-[80px]"
+                                                  src={item.imageUrl}
+                                                  alt=""
+                                                />
+                                                <div className="flex flex-col items-start gap-[8px]">
+                                                  <p className="text-[#191C1F] text-[14px] leading-[20px]">
+                                                    {item.desc}
+                                                  </p>
+                                                  <span className="text-[#2DA5F3] text-[14px] leading-[20px] font-semibold">
+                                                    {item.price}
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            );
+                                          })}
+                                        </div>
+                                      );
+                                    } else if (
+                                      clickedSubCategory === "All" &&
+                                      index < 3
+                                    ) {
+                                      return (
+                                        <div className="flex flex-col gap-[16px]">
+                                          <div className="flex items-center gap-[12px] p-[12px] w-[312px] border border-[#E4E7E9] rounded-[3px]">
+                                            <img
+                                              className="w-[80px] h-[80px]"
+                                              src={
+                                                subCategory.items[0].imageUrl
+                                              }
+                                              alt=""
+                                            />
+                                            <div className="flex flex-col items-start gap-[8px]">
+                                              <p className="text-[#191C1F] text-[14px] leading-[20px]">
+                                                {subCategory.items[0].desc}
+                                              </p>
+                                              <span className="text-[#2DA5F3] text-[14px] leading-[20px] font-semibold">
+                                                {subCategory.items[0].price}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      );
+                                    }
+                                  } else if (subCategory.subName === clickedSubCategory || (clickedSubCategory === "All" && index < 1)) {
+                                    return (
+                                      <div className="w-[312px] h-full flex items-center justify-center text-[20px] text-[#475156]">This product is not available</div>
+                                    );
+                                  } 
+
+                                  
+                                }
+                              )}
+                            </div>
+                            <div className="flex flex-col gap-[24px] items-center justify-center bg-[#F7E99E] rounded-[4px] w-[312px] p-[32px]">
+                              <div className="flex flex-col items-center justify-center gap-[12px]">
+                                <img
+                                  src={Banner}
+                                  alt=""
+                                  className="w-[100px] h-[100px]"
+                                />
+                                <div className="flex flex-col gap-[16px] items-center">
+                                  <div className="flex flex-col gap-[8px] items-center">
+                                    <h3 className="text-[#191C1F] text-[28px] leading-[32px] font-semibold">
+                                      21% Discount
+                                    </h3>
+                                    <p className="text-[#475156] leading-[24px]">
+                                      Escape the noise, It’s time to hear the
+                                      magic with Xiaomi Earbuds.
+                                    </p>
+                                  </div>
+                                  <div className="flex gap-[8px] items-center">
+                                    <p className="text-[#475156] text-[14px] leading-[20px]">
+                                      Starting price:
+                                    </p>
+                                    <span className="text-[#191C1F] leading-[24px] font-semibold px-[12px] py-[6px] bg-white rounded-[3px]">
+                                      $99 USD
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                className="bg-[#FA8232] text-white flex items-center gap-[8px] px-[70px] leading-[50px] font-semibold rounded-[2px]"
+                              >
+                                Shop now
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.75 12H20.25"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M13.5 5.25L20.25 12L13.5 18.75"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </>
+                        );
+                      }
+                    })}
                   </div>
                 )}
               </div>

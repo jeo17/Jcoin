@@ -7,13 +7,13 @@ type Currency = {
 };
 
 type SubCategory = {
-  title: string;
   subName: string;
-  items: products;
+  items: products[] | null;
 };
 
 type Category = {
   name: string;
+  SubTitle: string;
   subCategories: SubCategory[];
 };
 
@@ -39,607 +39,1046 @@ export const languages: Currency[] = [
 export const categories: Category[] = [
   {
     name: "Computer & Laptop",
+    SubTitle: "FEATURED COMPUTERS",
     subCategories: [
       {
         subName: "Desktop Computer",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+         items: [
+      { id: "1", imageUrl: "/NavBarPic/1.1.1.png", desc: "Powerful desktop computer with high-end specifications", price: "$999.99", coupon: null },
+      { id: "2", imageUrl: "/NavBarPic/1.1.2.png", desc: "Compact desktop for home and office use", price: "$599.99", coupon: null },
+      { id: "3", imageUrl: "/NavBarPic/1.1.3.png", desc: "Gaming desktop with dedicated graphics card", price: "$1299.99", coupon: null },
+    ],
       },
       {
         subName: "Laptop",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items: [
+          { id: "1", imageUrl: "/NavBarPic/1.2.1.png", desc: "Thin and lightweight laptop for on-the-go professionals", price: "$799.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.2.2.png", desc: "High-performance laptop with SSD storage", price: "$1099.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.2.3.png", desc: "Budget-friendly laptop with decent specifications", price: "$499.99", coupon: null },
+        ],
       },
       {
         subName: "Gaming PC",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
-      },
-      {
-        subName: "Ultrabook",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:[
+          { id: "1", imageUrl: "/NavBarPic/1.3.1.png", desc: "High-performance gaming PC with RGB lighting", price: "$1499.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.3.2.png", desc: "VR-ready gaming desktop for immersive gaming experience", price: "$1799.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.3.3.png", desc: "Budget-friendly gaming PC with decent graphics", price: "$999.99", coupon: null },
+        ],
       },
       {
         subName: "Workstation",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items: [
+          { id: "1", imageUrl: "/NavBarPic/1.4.1.png", desc: "Powerful workstation with multiple CPU cores for heavy tasks", price: "$2499.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.4.2.png", desc: "Professional-grade workstation for graphic design and video editing", price: "$1899.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.4.3.png", desc: "Entry-level workstation for basic CAD work", price: "$1299.99", coupon: null },
+        ],
       },
       {
         subName: "Chromebook",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items: [
+          { id: "1", imageUrl: "/NavBarPic/1.5.1.png", desc: "Lightweight and budget-friendly Chromebook", price: "$299.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.5.2.png", desc: "Convertible Chromebook with touch screen", price: "$399.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.5.3.png", desc: "Student-friendly Chromebook with long battery life", price: "$349.99", coupon: null },
+        ]  
       },
       {
         subName: "2-in-1 Laptop",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        items: [
+          { id: "1", imageUrl: "/NavBarPic/1.6.1.png", desc: "Versatile 2-in-1 laptop with detachable keyboard", price: "$899.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.6.2.png", desc: "Convertible laptop with 360-degree hinge for flexibility", price: "$799.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.6.3.png", desc: "Affordable 2-in-1 laptop with touchscreen display", price: "$699.99", coupon: null },
+        ],
       },
       {
         subName: "MacBook",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
-      },
-      {
-        subName: "Netbook",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        items: [
+          { id: "1", imageUrl: "/NavBarPic/1.7.1.png", desc: "Sleek and powerful MacBook for creative professionals", price: "$1499.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.7.2.png", desc: "Thin and lightweight MacBook Air with Retina display", price: "$1299.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.7.3.png", desc: "Entry-level MacBook for everyday use", price: "$1099.99", coupon: null },
+        ],
       },
       {
         subName: "All-in-One PC",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        items: [
+          { id: "1", imageUrl: "/NavBarPic/1.8.1.png", desc: "All-in-One PC with large touchscreen display", price: "$1299.99", coupon: null },
+          { id: "2", imageUrl: "/NavBarPic/1.8.2.png", desc: "Space-saving All-in-One PC for home office use", price: "$899.99", coupon: null },
+          { id: "3", imageUrl: "/NavBarPic/1.8.3.png", desc: "Powerful All-in-One PC with dedicated graphics", price: "$1699.99", coupon: null },
+        ], 
       },
     ],
   },
   {
     name: "Computer Accessories",
+    SubTitle: "FEATURED LAPTOP ACCESSORIES",
+
     subCategories: [
       {
         subName: "Wireless Mouse",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null /*  [
+          { id: "1", imageUrl: "", desc: "sss", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "sss", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "sss", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Mechanical Keyboard",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Hard Drive",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "USB-C Hub",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming Headset",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Webcam",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Laptop Cooling Pad",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Monitor Stand",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Mouse Pad",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Bluetooth Speaker",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "SmartPhone",
+    SubTitle: "FEATURED PHONES",
+
     subCategories: [
       {
         subName: "iPhone",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Sansung",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Realme",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Xiaomi",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Oppo",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Tecno",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Vivo",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "OnePlus",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Huawei",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Infinix",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "Headphone",
+    SubTitle: "FEATURED HEADPHONES",
+
     subCategories: [
       {
-        subName: "Over-Ear Headphones",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        subName: "Over-Ear",
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "In-Ear Earphones",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
-        subName: "Wireless Bluetooth Headset",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        subName: "Bluetooth Headset",
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming Headphones",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Noise-Canceling Headset",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Sport Earbuds",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
-        subName: "Studio Monitor Headphones",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        subName: "Studio Monitor",
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
-        subName: "Bone Conduction Headphones",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        subName: "Bone Conduction",
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "DJ Headset",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
-        subName: "Foldable On-Ear Headphones",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        subName: "Foldable On-Ear",
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "Mobile Accessories",
+    SubTitle: "FEATURED PHONE ACCESSORIES",
+
     subCategories: [
       {
         subName: "Phone Cases",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Screen Protectors",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Charging Cables",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Power Banks",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Car Mounts",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Wireless Chargers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Bluetooth Earbuds",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Mobile Stands",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Selfie Sticks",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Phone Grips",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "Gaming Console",
+    SubTitle: "FEATURED CONSOLES",
+
     subCategories: [
       {
         subName: "PlayStation 5",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Xbox Series X",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Nintendo Switch",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming PC",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "VR Headset",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming Laptop",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Controller Accessories",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming Keyboard",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming Mouse",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Gaming Chair",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "Camera & Photo",
+    SubTitle: "FEATURED CAMERAS",
+
     subCategories: [
       {
         subName: "Digital Cameras",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "DSLR Cameras",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Mirrorless Cameras",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Camera Lenses",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Tripods",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Camera Bags",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "SD Memory Cards",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Instant Print Cameras",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Photography Lighting",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Camera Filters",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "TV & Homes Appliances",
+    SubTitle: "FEATURED TV'S",
+
     subCategories: [
       {
         subName: "Smart TVs",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Blu-ray Players",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Soundbars",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Refrigerators",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Washing Machines",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Vacuum Cleaners",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Air Purifiers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Microwaves",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Coffee Makers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Smart Thermostats",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "Watchs & Accessories",
+    SubTitle: "FEATURED WATCHS",
+
     subCategories: [
       {
         subName: "Smartwatches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Analog Watches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Digital Watches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Watch Bands",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Watch Cases",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Watch Winders",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Fitness Trackers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Pocket Watches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Sports Watches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Watch Repair Kits",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "GPS & Navigation",
+    SubTitle: "FEATURED GPS",
+
     subCategories: [
       {
         subName: "Car GPS Systems",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Handheld GPS Devices",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "GPS Trackers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Marine GPS",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Motorcycle GPS",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "GPS Maps",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Fitness GPS Watches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Outdoor Navigation Tools",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "GPS Antennas",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "GPS Accessories",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
   {
     name: "Warable Technology",
+    SubTitle: "FEATURED TECHNOLOGY",
+
     subCategories: [
       {
         subName: "Fitness Trackers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
 
       {
         subName: "Smart Glasses",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Health Monitoring",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Virtual Reality Headsets",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Smart Clothing",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Wearable Cameras",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "GPS Watches",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Biometric Sensors",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Wearable Speakers",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
       {
         subName: "Smart Jewelry",
-        title: "",
-        items: { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+
+        items:  null  /* [
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+          { id: "1", imageUrl: "", desc: "", price: "", coupon: null },
+        ],  */
       },
     ],
   },
