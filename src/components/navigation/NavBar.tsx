@@ -458,6 +458,9 @@ const NavBar: React.FC = () => {
               />
             </svg>
           </div>
+
+          {/*Profile icon */}
+
           <div className="w-8 h-8 relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -682,13 +685,17 @@ const NavBar: React.FC = () => {
                                         </div>
                                       );
                                     }
-                                  } else if (subCategory.subName === clickedSubCategory || (clickedSubCategory === "All" && index < 1)) {
+                                  } else if (
+                                    subCategory.subName ===
+                                      clickedSubCategory ||
+                                    (clickedSubCategory === "All" && index < 1)
+                                  ) {
                                     return (
-                                      <div className="w-[312px] h-full flex items-center justify-center text-[20px] text-[#475156]">This product is not available</div>
+                                      <div className="w-[312px] h-full flex items-center justify-center text-[20px] text-[#475156]">
+                                        This product is not available
+                                      </div>
                                     );
-                                  } 
-
-                                  
+                                  }
                                 }
                               )}
                             </div>
