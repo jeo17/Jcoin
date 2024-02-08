@@ -1,10 +1,12 @@
 import { currency, languages, categories } from "../../assets/data/NavBarData";
 import { useState, useEffect, useRef } from "react";
+import { GrFormViewHide } from "react-icons/gr";
 import Banner from "/NavBarPic/Banner.png";
 
 const NavBar: React.FC = () => {
   const langListContainerRef = useRef<HTMLDivElement | null>(null);
   const currencyListContainerRef = useRef<HTMLDivElement | null>(null);
+  const signInMenuContainerRef = useRef<HTMLDivElement | null>(null);
 
   const [currencyMenu, setCurrencyMenu] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState("Dollar (USD)");
@@ -15,6 +17,9 @@ const NavBar: React.FC = () => {
   const [categoryMenu, setCategoryMenu] = useState(false);
   const [clickedCategory, setClickedCategory] = useState<string | null>(null);
   const [clickedSubCategory, setClickedSubCategory] = useState("All");
+
+  const [signInMenu, setSignInMenu] = useState(false);
+  const [visiblePassword, setVisiblePassword] = useState(false);
 
   let CurrencyCode: string | undefined;
   currency.forEach((curr) => {
@@ -34,6 +39,7 @@ const NavBar: React.FC = () => {
     const handleOutsideClick = (event: MouseEvent) => {
       const langListContainer = langListContainerRef.current;
       const currencyListContainer = currencyListContainerRef.current;
+      //const signInMenuContainer = signInMenuContainerRef.current;
 
       // Check if the click is outside the language list container
       if (
@@ -49,6 +55,14 @@ const NavBar: React.FC = () => {
       ) {
         setCurrencyMenu(false);
       }
+      // Check if the click is outside the signIn Menu container
+      {/* 
+      if (
+        signInMenuContainer &&
+        !signInMenuContainer.contains(event.target as Node)
+      ) {
+        setSignInMenu(false);
+      }  */}
     };
 
     // Add mousedown event listener to the document
@@ -461,7 +475,9 @@ const NavBar: React.FC = () => {
 
           {/*Profile icon */}
           <div className="relative">
-            <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
+            <div className="w-8 h-8 relative hover:scale-95 cursor-pointer" onClick={() => {
+              setSignInMenu(!signInMenu)
+            }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -484,8 +500,9 @@ const NavBar: React.FC = () => {
                 />
               </svg>
             </div>
-
-            <div className="flex flex-col items-center gap-[24px] absolute right-0 top-[45px] z-10 p-[32px] rounded-[4px] bg-white border border-[#E4E7E9] shadow-md">
+        {signInMenu &&  
+            <div className="flex flex-col items-center gap-[24px] absolute right-0 top-[48px] z-10 p-[32px] rounded-[4px] bg-white border border-[#E4E7E9] shadow-md"
+             ref={signInMenuContainerRef}>
               <div className="flex flex-col items-stretch gap-[20px] w-[340px]">
                 <h3 className="font-semibold text-[20px] text-[#191C1F] leading-[28px] text-center">
                   Sign in to your account
@@ -524,35 +541,48 @@ const NavBar: React.FC = () => {
                     <div className="relative flex items-center justify-end">
                       <input
                         placeholder="Password"
-                        type="password"
+                        type={`${visiblePassword ? "text" : "password"}`}
                         name="passInput"
                         id="passInput"
                         className="w-full rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px]"
                       />
 
-                      <svg
-                        className="absolute right-[16px]"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 3.54166C3.75 3.54166 1.25 9.99999 1.25 9.99999C1.25 9.99999 3.75 16.4583 10 16.4583C16.25 16.4583 18.75 9.99999 18.75 9.99999C18.75 9.99999 16.25 3.54166 10 3.54166Z"
-                          stroke="#191C1F"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                      {visiblePassword && (
+                        <svg
+                          onClick={() => {
+                            setVisiblePassword(false);
+                          }}
+                          className="absolute right-[16px] cursor-pointer"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M10 3.54166C3.75 3.54166 1.25 9.99999 1.25 9.99999C1.25 9.99999 3.75 16.4583 10 16.4583C16.25 16.4583 18.75 9.99999 18.75 9.99999C18.75 9.99999 16.25 3.54166 10 3.54166Z"
+                            stroke="#191C1F"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+                            stroke="#191C1F"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      )}
+                      {visiblePassword === false && (
+                        <GrFormViewHide
+                          className="absolute right-[16px] cursor-pointer w-[22px] h-[22px]"
+                          onClick={() => {
+                            setVisiblePassword(true);
+                          }}
                         />
-                        <path
-                          d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
-                          stroke="#191C1F"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      )}
                     </div>
                   </div>
                 </form>
@@ -601,7 +631,9 @@ const NavBar: React.FC = () => {
                   Create account{" "}
                 </button>
               </div>
-            </div>
+            </div>        
+        }
+
           </div>
         </div>
       </div>
