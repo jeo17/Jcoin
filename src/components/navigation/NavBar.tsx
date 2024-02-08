@@ -371,7 +371,7 @@ const NavBar: React.FC = () => {
         />
 
         <div className="justify-start items-center gap-6 flex">
-          <div className="w-8 h-8 relative">
+          <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
             <div className="py-0.5 left-[16px] top-[-4px] absolute bg-white rounded-[100px] border border-cyan-700 flex-col justify-start items-start gap-2.5 inline-flex">
               <div className="w-5 text-center text-cyan-700 text-xs font-semibold font-ps leading-none">
                 2
@@ -441,7 +441,7 @@ const NavBar: React.FC = () => {
               </g>
             </svg>
           </div>
-          <div className="w-8 h-8 relative">
+          <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -460,29 +460,148 @@ const NavBar: React.FC = () => {
           </div>
 
           {/*Profile icon */}
+          <div className="relative">
+            <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+              >
+                <path
+                  d="M16 20C20.4183 20 24 16.4183 24 12C24 7.58172 20.4183 4 16 4C11.5817 4 8 7.58172 8 12C8 16.4183 11.5817 20 16 20Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  d="M3.875 27C5.10367 24.8714 6.87104 23.1038 8.99944 21.8749C11.1278 20.6459 13.5423 19.9989 16 19.9989C18.4577 19.9989 20.8722 20.6459 23.0006 21.8749C25.129 23.1038 26.8963 24.8714 28.125 27"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
 
-          <div className="w-8 h-8 relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-            >
-              <path
-                d="M16 20C20.4183 20 24 16.4183 24 12C24 7.58172 20.4183 4 16 4C11.5817 4 8 7.58172 8 12C8 16.4183 11.5817 20 16 20Z"
-                stroke="white"
-                stroke-width="2"
-                stroke-miterlimit="10"
-              />
-              <path
-                d="M3.875 27C5.10367 24.8714 6.87104 23.1038 8.99944 21.8749C11.1278 20.6459 13.5423 19.9989 16 19.9989C18.4577 19.9989 20.8722 20.6459 23.0006 21.8749C25.129 23.1038 26.8963 24.8714 28.125 27"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <div className="flex flex-col items-center gap-[24px] absolute right-0 top-[45px] z-10 p-[32px] rounded-[4px] bg-white border border-[#E4E7E9] shadow-md">
+              <div className="flex flex-col items-stretch gap-[20px] w-[340px]">
+                <h3 className="font-semibold text-[20px] text-[#191C1F] leading-[28px] text-center">
+                  Sign in to your account
+                </h3>
+                <form
+                  action=""
+                  className="flex flex-col items-stretch gap-[16px] w-full"
+                >
+                  <div className="flex flex-col items-stretch gap-[8px]">
+                    <label
+                      htmlFor="emailInput"
+                      className="text-[14px] text-[#191C1F] leading-[20px] font-semibold"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      placeholder="Email"
+                      type="email"
+                      name="emailInput"
+                      id="emailInput"
+                      className="rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px] placeholder:font-medium"
+                    />
+                  </div>
+                  <div className="flex flex-col items-stretch gap-[8px]">
+                    <div className="flex items-center justify-between w-full">
+                      <label
+                        htmlFor="passInput"
+                        className="text-[14px] text-[#191C1F] leading-[20px] font-semibold"
+                      >
+                        Password
+                      </label>
+                      <span className="text-[14px] text-[#2DA5F3] leading-[20px] font-semibold">
+                        Forget Password
+                      </span>
+                    </div>
+                    <div className="relative flex items-center justify-end">
+                      <input
+                        placeholder="Password"
+                        type="password"
+                        name="passInput"
+                        id="passInput"
+                        className="w-full rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px]"
+                      />
+
+                      <svg
+                        className="absolute right-[16px]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                      >
+                        <path
+                          d="M10 3.54166C3.75 3.54166 1.25 9.99999 1.25 9.99999C1.25 9.99999 3.75 16.4583 10 16.4583C16.25 16.4583 18.75 9.99999 18.75 9.99999C18.75 9.99999 16.25 3.54166 10 3.54166Z"
+                          stroke="#191C1F"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+                          stroke="#191C1F"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </form>
+                <button
+                  type="button"
+                  className="bg-[#FA8232] text-white rounded-[2px] flex justify-center items-center gap-[8px] text-[14px] leading-[48px] font-bold uppercase"
+                >
+                  Login
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M3.625 10H17.375"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M11.75 4.375L17.375 10L11.75 15.625"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div className="flex flex-col items-stretch gap-[12px] w-[340px]">
+                <div className="flex items-center gap-[8px]">
+                  <div className="flex-grow h-[2px] bg-[#E4E7E9]"></div>
+                  <span className="text-[#77878F] text-[14px] leading-[20px]">
+                    Don’t have account
+                  </span>
+                  <div className="flex-grow h-[2px] bg-[#E4E7E9]"></div>
+                </div>
+                <button
+                  type="button"
+                  className="bg-white text-[#FA8232] rounded-[2px] border-[2px] border-[#FFE7D6] text-[14px] leading-[48px] font-bold uppercase"
+                >
+                  {" "}
+                  Create account{" "}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -728,7 +847,7 @@ const NavBar: React.FC = () => {
                               </div>
                               <button
                                 type="button"
-                                className="bg-[#FA8232] text-white flex items-center gap-[8px] px-[70px] leading-[50px] font-semibold rounded-[2px]"
+                                className="bg-[#FA8232] text-white flex items-center  gap-[8px] px-[64px] leading-[50px] font-semibold rounded-[2px] uppercase"
                               >
                                 Shop now
                                 <svg
