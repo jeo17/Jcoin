@@ -169,7 +169,7 @@ const Products: React.FC = () => {
                   />
                   <div className="flex gap-[8px] items-center justify-center hover:cursor-pointer absolute inset-0 bg-black opacity-0 bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 ease-in-out hover:opacity-100">
                     <span
-                      className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:scale-110"
+                      className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:scale-105"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@ const Products: React.FC = () => {
                       </svg>
                     </span>
 
-                    <span className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center">
+                    <span className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:scale-105">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -217,7 +217,7 @@ const Products: React.FC = () => {
                     </span>
 
                     <span
-                      className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:bg-[#FA8232]"
+                      className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:bg-[#FA8232] hover:scale-105"
                       onMouseEnter={() => {
                         setSeeInfoIcon(true);
                       }}
