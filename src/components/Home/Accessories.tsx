@@ -1,9 +1,10 @@
-import Banner from "../../assets/productes/Banner.jpg";
+import { useState } from "react";
 import {
   AccessoriesHeader,
   MyAccessories,
 } from "../../assets/data/AccessoriesData";
 import banner1 from "../../assets/productes/Image2.png";
+
 const Products: React.FC = () => {
   const generateStars = (rating: number) => {
     const stars = [];
@@ -46,6 +47,7 @@ const Products: React.FC = () => {
     }
     return stars;
   };
+  const [seeInfoIcon, setSeeInfoIcon] = useState(false);
 
   return (
     <div className="flex flex-row-reverse gap-[24px]">
@@ -102,12 +104,20 @@ const Products: React.FC = () => {
         </div>
 
         <div className="rounded-[4px] px-[24px] py-[36px] flex flex-col items-center justify-center gap-[24px] bg-[#124261]">
-           <div className="flex flex-col items-center justify-center gap-[12px]">
-              <span className="px-[12px] py-[6px] rounded-[2px] bg-[#2f5974] text-white text-[14px] font-semibold leading-[20px]">SUMMER SALES</span>
-              <h3 className="text-white text-[28px] font-semibold leading-[32px]">37% DISCOUNT</h3>
-              <p className="text-white text-center text-[18px] font-normal leading-[24px]">only for <span className="font-semibold text-[#EBC80C]">SmartPhone</span> product.</p>
-           </div>
-           <button className="bg-[#2DA5F3] px-[24px] leading-[48px] text-[14px] flex items-center justify-center gap-[8px] rounded-[2px] text-white font-semibold uppercase">
+          <div className="flex flex-col items-center justify-center gap-[12px]">
+            <span className="px-[12px] py-[6px] rounded-[2px] bg-[#2f5974] text-white text-[14px] font-semibold leading-[20px]">
+              SUMMER SALES
+            </span>
+            <h3 className="text-white text-[28px] font-semibold leading-[32px]">
+              37% DISCOUNT
+            </h3>
+            <p className="text-white text-center text-[18px] font-normal leading-[24px]">
+              only for{" "}
+              <span className="font-semibold text-[#EBC80C]">SmartPhone</span>{" "}
+              product.
+            </p>
+          </div>
+          <button className="bg-[#2DA5F3] px-[24px] leading-[48px] text-[14px] flex items-center justify-center gap-[8px] rounded-[2px] text-white font-semibold uppercase">
             Shop now
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -192,11 +202,94 @@ const Products: React.FC = () => {
           {MyAccessories.map((Accessorie) => {
             return (
               <div className="border border-[#E4E7E9] rounded-[3px] w-[23.7%] p-[16px] relative">
-                <img
-                  src={Accessorie.imageUrl}
-                  alt="product"
-                  className="mb-[24px]"
-                />
+                <div className="relative group">
+                  <img
+                    src={Accessorie.imageUrl}
+                    alt="product"
+                    className="mb-[24px]"
+                  />
+                  <div className="flex gap-[8px] items-center justify-center hover:cursor-pointer absolute inset-0 bg-black opacity-0 bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 ease-in-out hover:opacity-100">
+                    <span className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:scale-105">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="18"
+                        viewBox="0 0 22 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M11 17.25C11 17.25 1.625 12 1.625 5.62501C1.625 4.49803 2.01546 3.40585 2.72996 2.53431C3.44445 1.66277 4.43884 1.0657 5.54393 0.844677C6.64903 0.623658 7.79657 0.792346 8.79131 1.32204C9.78605 1.85174 10.5665 2.70972 11 3.75001C11.4335 2.70972 12.2139 1.85174 13.2087 1.32204C14.2034 0.792346 15.351 0.623658 16.4561 0.844677C17.5612 1.0657 18.5555 1.66277 19.27 2.53431C19.9845 3.40585 20.375 4.49803 20.375 5.62501C20.375 12 11 17.25 11 17.25Z"
+                          stroke="#191C1F"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+
+                    <span className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:scale-105">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M8.25 20.25C8.25 20.6642 7.91421 21 7.5 21C7.08579 21 6.75 20.6642 6.75 20.25C6.75 19.8358 7.08579 19.5 7.5 19.5C7.91421 19.5 8.25 19.8358 8.25 20.25Z"
+                          fill="#191C1F"
+                          stroke="#191C1F"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          d="M17.25 21.75C18.0784 21.75 18.75 21.0784 18.75 20.25C18.75 19.4216 18.0784 18.75 17.25 18.75C16.4216 18.75 15.75 19.4216 15.75 20.25C15.75 21.0784 16.4216 21.75 17.25 21.75Z"
+                          fill="#191C1F"
+                        />
+                        <path
+                          d="M3.96562 6.75H20.7844L18.3094 15.4125C18.2211 15.7269 18.032 16.0036 17.7711 16.2C17.5103 16.3965 17.1922 16.5019 16.8656 16.5H7.88437C7.55783 16.5019 7.2397 16.3965 6.97886 16.2C6.71803 16.0036 6.52893 15.7269 6.44062 15.4125L3.04688 3.54375C3.00203 3.38696 2.9073 3.24905 2.77704 3.15093C2.64677 3.05282 2.48808 2.99983 2.325 3H0.75"
+                          stroke="#191C1F"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+
+                    <span
+                      className="bg-white rounded-[50%] w-[48px] h-[48px] flex justify-center items-center hover:bg-[#FA8232] hover:scale-105"
+                      onMouseEnter={() => {
+                        setSeeInfoIcon(true);
+                      }}
+                      onMouseLeave={() => {
+                        setSeeInfoIcon(false);
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 4.25C4.5 4.25 1.5 12 1.5 12C1.5 12 4.5 19.75 12 19.75C19.5 19.75 22.5 12 22.5 12C22.5 12 19.5 4.25 12 4.25Z"
+                          stroke={`${seeInfoIcon ? "white" : "#191C1F"}`}
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                          stroke={`${seeInfoIcon ? "white" : "#191C1F"}`}
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
                 <div className=" flex flex-col gap-[8px]">
                   <div className="flex gap-[4px] items-center">
                     <div className="flex">

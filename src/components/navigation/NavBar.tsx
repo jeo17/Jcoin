@@ -385,6 +385,7 @@ const NavBar: React.FC = () => {
         />
 
         <div className="justify-start items-center gap-6 flex">
+          {/*shoping card icon */}
           <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
             <div className="py-0.5 left-[16px] top-[-4px] absolute bg-white rounded-[100px] border border-cyan-700 flex-col justify-start items-start gap-2.5 inline-flex">
               <div className="w-5 text-center text-cyan-700 text-xs font-semibold font-ps leading-none">
@@ -473,7 +474,7 @@ const NavBar: React.FC = () => {
             </svg>
           </div>
 
-          {/*Profile icon */}
+          
           <div className="relative">
             <div className="w-8 h-8 relative hover:scale-95 cursor-pointer" onClick={() => {
               setSignInMenu(!signInMenu)
