@@ -1,7 +1,7 @@
 
 const Newsletter: React.FC = () => {
   return (
-    <div className="flex flex-col  justify-center items-center gap-[32px] bg-[#1B6392] py-[72px]">
+    <div className="flex flex-col  justify-center items-center gap-[32px] bg-cyan-700 py-[72px]">
         <div className="flex flex-col  justify-center items-center gap-[12px] ">
             <h2 className="text-white text-[32px] font-semibold leading-[40px]">Subscribe to our newsletter</h2>
             <p className="text-white leading-[24px] opacity-70 w-[536px] text-center">Praesent fringilla erat a lacinia egestas. Donec vehicula tempor libero et cursus. Donec non quam urna. Quisque vitae porta ipsum.</p>
