@@ -21,6 +21,8 @@ const NavBar: React.FC = () => {
   const [signInMenu, setSignInMenu] = useState(false);
   const [visiblePassword, setVisiblePassword] = useState(false);
 
+  const [shoppingCard, setShoppingCard] = useState(false);
+
   let CurrencyCode: string | undefined;
   currency.forEach((curr) => {
     if (curr.name === selectedCurrency) {
@@ -56,13 +58,15 @@ const NavBar: React.FC = () => {
         setCurrencyMenu(false);
       }
       // Check if the click is outside the signIn Menu container
-      {/* 
+      {
+        /* 
       if (
         signInMenuContainer &&
         !signInMenuContainer.contains(event.target as Node)
       ) {
         setSignInMenu(false);
-      }  */}
+      }  */
+      }
     };
 
     // Add mousedown event listener to the document
@@ -386,76 +390,197 @@ const NavBar: React.FC = () => {
 
         <div className="justify-start items-center gap-6 flex">
           {/*shoping card icon */}
-          <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
-            <div className="py-0.5 left-[16px] top-[-4px] absolute bg-white rounded-[100px] border border-cyan-700 flex-col justify-start items-start gap-2.5 inline-flex">
-              <div className="w-5 text-center text-cyan-700 text-xs font-semibold font-ps leading-none">
-                2
-              </div>
-            </div>
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="miter"
+          <div className="relative">
+            <div
+              className="w-8 h-8 relative hover:scale-95 cursor-pointer"
+              onClick={() => {
+                setShoppingCard(!shoppingCard);
+                setSignInMenu(false);
+              }}
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
+              <div className="py-0.5 left-[16px] top-[-4px] absolute bg-white rounded-[100px] border border-cyan-700 flex-col justify-start items-start gap-2.5 inline-flex">
+                <div className="w-5 text-center text-cyan-700 text-xs font-semibold font-ps leading-none">
+                  2
+                </div>
+              </div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="1"
                 stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke="#CCCCCC"
-                stroke-width="1.9200000000000004"
+                stroke-linejoin="miter"
               >
-                <polyline
-                  points="2 3 5 3 8.5 16 18 16 21 7 6.1 7"
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
                   stroke-linecap="round"
-                ></polyline>
-                <line
-                  x1="9.99"
-                  y1="20"
-                  x2="10.01"
-                  y2="20"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                ></line>
-                <line
-                  x1="15.99"
-                  y1="20"
-                  x2="16.01"
-                  y2="20"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                ></line>
-              </g>
-              <g id="SVGRepo_iconCarrier">
-                <polyline
-                  points="2 3 5 3 8.5 16 18 16 21 7 6.1 7"
-                  stroke-linecap="round"
-                ></polyline>
-                <line
-                  x1="9.99"
-                  y1="20"
-                  x2="10.01"
-                  y2="20"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                ></line>
-                <line
-                  x1="15.99"
-                  y1="20"
-                  x2="16.01"
-                  y2="20"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                ></line>
-              </g>
-            </svg>
+                  stroke-linejoin="round"
+                  stroke="#CCCCCC"
+                  stroke-width="1.9200000000000004"
+                >
+                  <polyline
+                    points="2 3 5 3 8.5 16 18 16 21 7 6.1 7"
+                    stroke-linecap="round"
+                  ></polyline>
+                  <line
+                    x1="9.99"
+                    y1="20"
+                    x2="10.01"
+                    y2="20"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                  ></line>
+                  <line
+                    x1="15.99"
+                    y1="20"
+                    x2="16.01"
+                    y2="20"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                  ></line>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                  <polyline
+                    points="2 3 5 3 8.5 16 18 16 21 7 6.1 7"
+                    stroke-linecap="round"
+                  ></polyline>
+                  <line
+                    x1="9.99"
+                    y1="20"
+                    x2="10.01"
+                    y2="20"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                  ></line>
+                  <line
+                    x1="15.99"
+                    y1="20"
+                    x2="16.01"
+                    y2="20"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                  ></line>
+                </g>
+              </svg>
+            </div>
+            {shoppingCard && (
+              <div className="flex flex-col items-center gap-[16px] absolute right-2 top-[48px] z-10 rounded-[4px] py-[24px] bg-white border border-[#E4E7E9] shadow-md">
+                <div className="flex flex-col items-stretch  w-[390px] px-[24px] ">
+                  <h2 className="text-[#191C1F] leading-[24px] font-semibold ">
+                    Shopping Cart{" "}
+                    <span className="text-[#5F6C72] leading-[24px] font-normal">
+                      (01)
+                    </span>{" "}
+                  </h2>
+                </div>
+                <div className="w-full h-[2px] bg-[#E4E7E9]"></div>
+
+                <div className="flex flex-col items-stretch gap-[16px] w-[390px] px-[24px] ">
+                  <div className="flex flex-col gap-[16px]">
+                    <div className="flex items-center gap-[16px] relative">
+                      <img
+                        src="/CategoryPic/c2.png"
+                        alt="product"
+                        className="w-[80px] border-[1px] border-[#E4E7E9]"
+                      />
+                      <div className="flex flex-col gap-[8px] items-start py-[6px] pr-[36px]">
+                        <p className="text-[#191C1F] text-[14px] leading-[20px]">
+                          Canon EOS 1500D DSLR Camera Body+ 18-55 mm
+                        </p>
+                        <div className="flex items-center gap-[8px]">
+                          <span className="text-[#5F6C72] text-[14px] leading-[20px] cursor-pointer">
+                            1 x
+                          </span>
+                          <span className="text-[#2DA5F3] text-[14px] leading-[20px] font-semibold">
+                            $1,500
+                          </span>
+                        </div>
+                      </div>
+                      <svg
+                        className="absolute right-0 cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.5 3.5L3.5 12.5"
+                          stroke="#929FA5"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12.5 12.5L3.5 3.5"
+                          stroke="#929FA5"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full h-[2px] bg-[#E4E7E9]"></div>
+                <div className="flex flex-col items-stretch gap-[12px] w-[390px] px-[24px] ">
+                  <div className="flex flex-col gap-[20px] items-center">
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-[#475156] text-[14px] leading-[20px]">
+                        Sub-Total:
+                      </span>
+                      <p className="text-[#191C1F] text-[14px] leading-[20px] font-semibold">
+                        $2038.00 USD
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-[8px] w-full">
+                      <button
+                        type="button"
+                        className="flex items-center gap-[8px] justify-center bg-[#FA8232] text-white rounded-[2px] text-[14px] leading-[52px] font-bold uppercase"
+                      >
+                        {" "}
+                        Checkout now{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="21"
+                          height="20"
+                          viewBox="0 0 21 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M3.625 10H17.375"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M11.75 4.375L17.375 10L11.75 15.625"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        className="bg-white text-[#FA8232] rounded-[2px] border-[2px] border-[#FFE7D6] text-[14px] leading-[48px] font-bold uppercase"
+                      >
+                        {" "}
+                        View Cart{" "}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
+
           <div className="w-8 h-8 relative hover:scale-95 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -474,11 +599,14 @@ const NavBar: React.FC = () => {
             </svg>
           </div>
 
-          
           <div className="relative">
-            <div className="w-8 h-8 relative hover:scale-95 cursor-pointer" onClick={() => {
-              setSignInMenu(!signInMenu)
-            }}>
+            <div
+              className="w-8 h-8 relative hover:scale-95 cursor-pointer"
+              onClick={() => {
+                setSignInMenu(!signInMenu);
+                setShoppingCard(false);
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -501,140 +629,141 @@ const NavBar: React.FC = () => {
                 />
               </svg>
             </div>
-        {signInMenu &&  
-            <div className="flex flex-col items-center gap-[24px] absolute right-0 top-[48px] z-10 p-[32px] rounded-[4px] bg-white border border-[#E4E7E9] shadow-md"
-             ref={signInMenuContainerRef}>
-              <div className="flex flex-col items-stretch gap-[20px] w-[340px]">
-                <h3 className="font-semibold text-[20px] text-[#191C1F] leading-[28px] text-center">
-                  Sign in to your account
-                </h3>
-                <form
-                  action=""
-                  className="flex flex-col items-stretch gap-[16px] w-full"
-                >
-                  <div className="flex flex-col items-stretch gap-[8px]">
-                    <label
-                      htmlFor="emailInput"
-                      className="text-[14px] text-[#191C1F] leading-[20px] font-semibold"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      placeholder="Email"
-                      type="email"
-                      name="emailInput"
-                      id="emailInput"
-                      className="rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px] placeholder:font-medium"
-                    />
-                  </div>
-                  <div className="flex flex-col items-stretch gap-[8px]">
-                    <div className="flex items-center justify-between w-full">
+            {signInMenu && (
+              <div
+                className="flex flex-col items-center gap-[24px] absolute right-0 top-[48px] z-10 p-[32px] rounded-[4px] bg-white border border-[#E4E7E9] shadow-md"
+                ref={signInMenuContainerRef}
+              >
+                <div className="flex flex-col items-stretch gap-[20px] w-[340px]">
+                  <h3 className="font-semibold text-[20px] text-[#191C1F] leading-[28px] text-center">
+                    Sign in to your account
+                  </h3>
+                  <form
+                    action=""
+                    className="flex flex-col items-stretch gap-[16px] w-full"
+                  >
+                    <div className="flex flex-col items-stretch gap-[8px]">
                       <label
-                        htmlFor="passInput"
+                        htmlFor="emailInput"
                         className="text-[14px] text-[#191C1F] leading-[20px] font-semibold"
                       >
-                        Password
+                        Email Address
                       </label>
-                      <span className="text-[14px] text-[#2DA5F3] leading-[20px] font-semibold">
-                        Forget Password
-                      </span>
-                    </div>
-                    <div className="relative flex items-center justify-end">
                       <input
-                        placeholder="Password"
-                        type={`${visiblePassword ? "text" : "password"}`}
-                        name="passInput"
-                        id="passInput"
-                        className="w-full rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px]"
+                        placeholder="Email"
+                        type="email"
+                        name="emailInput"
+                        id="emailInput"
+                        className="rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px] placeholder:font-medium"
                       />
-
-                      {visiblePassword && (
-                        <svg
-                          onClick={() => {
-                            setVisiblePassword(false);
-                          }}
-                          className="absolute right-[16px] cursor-pointer"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                        >
-                          <path
-                            d="M10 3.54166C3.75 3.54166 1.25 9.99999 1.25 9.99999C1.25 9.99999 3.75 16.4583 10 16.4583C16.25 16.4583 18.75 9.99999 18.75 9.99999C18.75 9.99999 16.25 3.54166 10 3.54166Z"
-                            stroke="#191C1F"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                          <path
-                            d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
-                            stroke="#191C1F"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      )}
-                      {visiblePassword === false && (
-                        <GrFormViewHide
-                          className="absolute right-[16px] cursor-pointer w-[22px] h-[22px]"
-                          onClick={() => {
-                            setVisiblePassword(true);
-                          }}
-                        />
-                      )}
                     </div>
-                  </div>
-                </form>
-                <button
-                  type="button"
-                  className="bg-[#FA8232] text-white rounded-[2px] flex justify-center items-center gap-[8px] text-[14px] leading-[48px] font-bold uppercase"
-                >
-                  Login
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="21"
-                    height="20"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M3.625 10H17.375"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M11.75 4.375L17.375 10L11.75 15.625"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div className="flex flex-col items-stretch gap-[12px] w-[340px]">
-                <div className="flex items-center gap-[8px]">
-                  <div className="flex-grow h-[2px] bg-[#E4E7E9]"></div>
-                  <span className="text-[#77878F] text-[14px] leading-[20px]">
-                    Don’t have account
-                  </span>
-                  <div className="flex-grow h-[2px] bg-[#E4E7E9]"></div>
-                </div>
-                <button
-                  type="button"
-                  className="bg-white text-[#FA8232] rounded-[2px] border-[2px] border-[#FFE7D6] text-[14px] leading-[48px] font-bold uppercase"
-                >
-                  {" "}
-                  Create account{" "}
-                </button>
-              </div>
-            </div>        
-        }
+                    <div className="flex flex-col items-stretch gap-[8px]">
+                      <div className="flex items-center justify-between w-full">
+                        <label
+                          htmlFor="passInput"
+                          className="text-[14px] text-[#191C1F] leading-[20px] font-semibold"
+                        >
+                          Password
+                        </label>
+                        <span className="text-[14px] text-[#2DA5F3] leading-[20px] font-semibold">
+                          Forget Password
+                        </span>
+                      </div>
+                      <div className="relative flex items-center justify-end">
+                        <input
+                          placeholder="Password"
+                          type={`${visiblePassword ? "text" : "password"}`}
+                          name="passInput"
+                          id="passInput"
+                          className="w-full rounded-[2px] border border-[#E4E7E9] py-[10px] px-[16px]"
+                        />
 
+                        {visiblePassword && (
+                          <svg
+                            onClick={() => {
+                              setVisiblePassword(false);
+                            }}
+                            className="absolute right-[16px] cursor-pointer"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 3.54166C3.75 3.54166 1.25 9.99999 1.25 9.99999C1.25 9.99999 3.75 16.4583 10 16.4583C16.25 16.4583 18.75 9.99999 18.75 9.99999C18.75 9.99999 16.25 3.54166 10 3.54166Z"
+                              stroke="#191C1F"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+                              stroke="#191C1F"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        )}
+                        {visiblePassword === false && (
+                          <GrFormViewHide
+                            className="absolute right-[16px] cursor-pointer w-[22px] h-[22px]"
+                            onClick={() => {
+                              setVisiblePassword(true);
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </form>
+                  <button
+                    type="button"
+                    className="bg-[#FA8232] text-white rounded-[2px] flex justify-center items-center gap-[8px] text-[14px] leading-[48px] font-bold uppercase"
+                  >
+                    Login
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="21"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M3.625 10H17.375"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M11.75 4.375L17.375 10L11.75 15.625"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div className="flex flex-col items-stretch gap-[12px] w-[340px]">
+                  <div className="flex items-center gap-[8px]">
+                    <div className="flex-grow h-[2px] bg-[#E4E7E9]"></div>
+                    <span className="text-[#77878F] text-[14px] leading-[20px]">
+                      Don’t have account
+                    </span>
+                    <div className="flex-grow h-[2px] bg-[#E4E7E9]"></div>
+                  </div>
+                  <button
+                    type="button"
+                    className="bg-white text-[#FA8232] rounded-[2px] border-[2px] border-[#FFE7D6] text-[14px] leading-[48px] font-bold uppercase"
+                  >
+                    {" "}
+                    Create account{" "}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
