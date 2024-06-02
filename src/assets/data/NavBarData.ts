@@ -1,4 +1,22 @@
-import { products } from "./TodayBestDealsData";
+
+
+export enum State {
+  Hot = 'HOT',
+  SoldOut = 'SOLD OUT',
+  BestDeals = 'BEST DEALS',
+  Sale = 'SALE',
+
+}
+export interface products {
+  id: string,
+  imageUrl: string;
+  desc: string;
+  price: string;
+  state?: State | null;
+  coupon: number | null;
+  rating?: number;
+  nbrOfPeople?: number,
+}
 
 type Currency = {
   name: string;

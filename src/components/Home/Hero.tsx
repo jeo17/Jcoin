@@ -6,9 +6,9 @@ import { Feutures } from "../../assets/data/HomeData";
 const Hero: React.FC = () => {
   return (
     <div className="flex flex-col gap-[24px]">
-      <div className="flex mt-[28px] h-[540px] gap-[24px]">
-        <div className="bg-[#F2F4F5] rounded-[6px] h-full w-[68%] relative flex items-center gap-[30px]">
-          <div className="flex flex-col items-start w-[360px] ml-[56px]">
+      <div className="flex lg:flex-col xl:flex-row mt-[28px] xl:h-[540px] gap-[24px] w-full">
+        <div className="bg-[#F2F4F5] rounded-[6px] h-full xl:w-[68%] w-[68%] relative flex items-center gap-[30px] lg:w-full">
+          <div className="flex flex-col items-start xl:w-[360px] w-[54%] ml-[56px]">
             <div className="flex justify-start items-center gap-[8px]">
               <div className="w-[24px] h-[2px] bg-[#2DA5F3]" />
               <p className="text-[14px] font-[600] font-ps text-[#2DA5F3]">
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
               Save up to 50% on select Xbox games. Get 3 months of PC Game Pass
               for $2 USD.
             </p>
-            <button className="rounded-[3px] mt-[24px] font-ps flex justify-center items-center gap-[12px] px-[32px] bg-[#FA8232] font-[600] uppercase leading-[56px] mr-5 text-[#fff]">
+            <button className="rounded-[3px] mt-[24px] font-ps flex justify-center items-center gap-[12px] px-[32px] bg-[#FA8232] font-[600] uppercase leading-[56px] mr-5 text-[#fff] text-nowrap">
               Shop now
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,16 +34,16 @@ const Hero: React.FC = () => {
                 <path
                   d="M3.75 12H20.25"
                   stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M13.5 5.25L20.25 12L13.5 18.75"
                   stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </button>
@@ -83,9 +83,9 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col h-full w-[32%] gap-[20px]">
+        <div className="flex lg:flex-row xl:flex-col flex-col h-full xl:w-[32%] w-[32%] gap-[20px] lg:w-full">
           <div className="bg-[#191C1F] rounded-[6px] w-full flex items-start relative">
-            <div className="my-[46px] ml-[30px] w-[180px]">
+            <div className="my-[46px] ml-[30px] lg:w-[50%] xl:w-[180px]">
               <span className="font-ps text-[14px] text-[#EBC80C] uppercase">
                 Summer Sales
               </span>
@@ -104,16 +104,16 @@ const Hero: React.FC = () => {
                   <path
                     d="M3.75 12H20.25"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M13.5 5.25L20.25 12L13.5 18.75"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </button>
@@ -130,12 +130,13 @@ const Hero: React.FC = () => {
             <img src={Airpodes} alt="producte" className="ml-[32px]" />
             <div className="flex flex-col items-start my-[40px]">
               <h1 className="font-ps font-[600] text-[24px] texy-[#191C1F]">
-                Xiaomi <br /> FlipBuds Pro
+                Xiaomi <br className="lg:hidden xl:inline-block inline-block" />{" "}
+                FlipBuds Pro
               </h1>
               <p className="font-ps font-[600] text-[18px] mt-[12px] text-[#2DA5F3]">
                 $299 USD
               </p>
-              <button className="rounded-[2px] mt-[20px] font-ps flex justify-center items-center gap-[8px] px-[24px] bg-[#FA8232] text-[14px] font-[600] uppercase leading-[48px] mr-5 text-[#fff]">
+              <button className="text-nowrap rounded-[2px] mt-[20px] font-ps flex justify-center items-center gap-[8px] px-[24px] bg-[#FA8232] text-[14px] font-[600] uppercase leading-[48px] mr-5 text-[#fff]">
                 Shop now
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,16 +148,16 @@ const Hero: React.FC = () => {
                   <path
                     d="M3.75 12H20.25"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M13.5 5.25L20.25 12L13.5 18.75"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </button>
@@ -164,12 +165,12 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex border-[#E4E7E9] border p-[16px] justify-center items-center gap-[28px]">
+      <div className="flex border-[#E4E7E9] border p-[16px] justify-center items-center gap-[28px] flex-wrap">
         {Feutures.map((feuture, index) => {
           return (
             <div
               key={index}
-              className="flex gap-[16px] justify-center items-center p-[16px]"
+              className="flex gap-[16px] justify-center items-center p-[16px] lg:w-[45%] xl:w-auto"
             >
               <span className="text-[40px]">{feuture.icon(feuture)}</span>
               <div className="flex flex-col gap-[4px] items-start w-[192px]">
@@ -180,9 +181,7 @@ const Hero: React.FC = () => {
                   {feuture.desc}
                 </p>
               </div>
-              {++index !== Feutures.length ? (
-                <div className="bg-[#E4E7E9] w-[1px] h-[56px]"></div>
-              ) : null}
+              <div className="bg-[#E4E7E9] w-[1px] h-[56px]"></div>
             </div>
           );
         })}

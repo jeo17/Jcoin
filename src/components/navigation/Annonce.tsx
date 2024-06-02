@@ -26,16 +26,16 @@ const Annonce: React.FC = () => {
           <path
             d="M3.625 10H17.375"
             stroke="#191C1F"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M11.75 4.375L17.375 10L11.75 15.625"
             stroke="#191C1F"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </button>
