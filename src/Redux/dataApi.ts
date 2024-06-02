@@ -26,7 +26,7 @@ export interface products {
 // Define a service using a base URL and expected endpoints
 export const dataApi = createApi({
   reducerPath: "dataApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://jcoin-backend.onrender.com/" }),
   endpoints: (builder) => ({
     getBestDeals: builder.query<products, string>({
       query: (name) => `TodayBestDealsData`,
